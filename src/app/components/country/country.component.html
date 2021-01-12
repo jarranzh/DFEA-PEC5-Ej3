@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div
+    *ngIf="country"
+    class="animate__animated animate__bounce animate__fadeIn"
+  >
+    <h1>{{ country.name }}</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Capital</th>
+          <th scope="col">Languages</th>
+          <th scope="col">Currency</th>
+          <th scope="col">Flag</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>{{ country.capital }}</td>
+        <td>
+          <div *ngFor="let language of country.languages">
+            <p>{{ language.name }}</p>
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let currency of country.currencies">
+            <p>{{ currency.name }}</p>
+          </div>
+        </td>
+        <td>
+          <img
+            style="width: 20%; height:20%"
+            class="rounded"
+            src="{{ country.flag }}"
+            alt=""
+          />
+        </td>
+      </tr>
+    </table>
+
+    <div class="col-md-3">
+      <a class="btn btn-danger" routerLink="/">Back</a>
+    </div>
+  </div>
+</div>
